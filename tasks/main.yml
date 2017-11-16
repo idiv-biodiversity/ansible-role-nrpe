@@ -1,0 +1,36 @@
+---
+
+- name: install nrpe
+  yum:
+    pkg: '{{ item }}'
+  with_items:
+    - nrpe
+    - nagios-plugins-load
+    - nagios-plugins-procs
+    - nagios-plugins-users
+    - nagios-plugins-disk
+
+- name: configure nrpe
+  template:
+    src: 'nrpe.cfg.j2'
+    dest: '/etc/nagios/nrpe.cfg'
+    owner: 'nrpe'
+    group: 'nrpe'
+    mode: '0644'
+  register: nrpe_configured
+
+- name: restart nrpe service
+  service:
+    name: nrpe
+    state: restarted
+  when: nrpe_configured.changed
+
+- name: enable nrpe service and assure it is started
+  service:
+    name: nrpe
+    enabled: yes
+    state: started
+  tags:
+    - service
+
+...

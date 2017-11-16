@@ -1,0 +1,44 @@
+---
+
+nrpe_log_facility: 'daemon'
+
+nrpe_pid_file: '/var/run/nrpe/nrpe.pid'
+
+nrpe_server_port: '5666'
+
+nrpe_user: 'nrpe'
+
+nrpe_group: 'nrpe'
+
+# TODO use list and join
+nrpe_allowed_hosts:
+  - '127.0.0.1'
+  - '::1'
+
+nrpe_dont_blame: '0'
+
+nrpe_allow_bash_command_substitution: '0'
+
+nrpe_debug: '0'
+
+nrpe_command_timeout: '60'
+
+nrpe_connection_timeout: '300'
+
+nrpe_commands:
+  - name: 'check_users'
+    line: '/usr/lib64/nagios/plugins/check_users -w 5 -c 10'
+
+  - name: 'check_load'
+    line: '/usr/lib64/nagios/plugins/check_load -r -w .15,.10,.05 -c .30,.25,.20'
+
+  - name: 'check_hda1'
+    line: '/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /dev/hda1'
+
+  - name: 'check_zombie_procs'
+    line: '/usr/lib64/nagios/plugins/check_procs -w 5 -c 10 -s Z'
+
+  - name: 'check_total_procs'
+    line: '/usr/lib64/nagios/plugins/check_procs -w 150 -c 200'
+
+...
