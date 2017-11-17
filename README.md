@@ -85,8 +85,10 @@ Add to `requirements.yml`:
 ```yml
 ---
 
+# optional
+# - src: geerlingguy.repo-epel
+
 - src: idiv-biodiversity.nrpe
-  version: v1.0.0
 
 ...
 ```
