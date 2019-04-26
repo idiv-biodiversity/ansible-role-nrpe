@@ -145,12 +145,15 @@ MIT
 Author Information
 ------------------
 
-This role was created in 2017 by [Christian Krause][author] aka [wookietreiber at GitHub][wookietreiber], HPC cluster systems administrator at the [German Centre for Integrative Biodiversity Research (iDiv)][idiv], based on a draft by Ben Langenberg aka [bencarsten at GitHub][bencarsten].
+This role was created in 2017 by [Christian Krause][author] aka [wookietreiber
+at GitHub][wookietreiber], HPC cluster systems administrator at the [German
+Centre for Integrative Biodiversity Research (iDiv)][idiv], based on a draft by
+Ben Langenberg aka [sloan87 at GitHub][sloan87].
 
 
 [author]: https://www.idiv.de/groups_and_people/employees/details/eshow/krause-christian.html
 [idiv]: https://www.idiv.de/
-[bencarsten]: https://github.com/bencarsten
+[sloan87]: https://github.com/sloan87
 [wookietreiber]: https://github.com/wookietreiber
 [NRPE]: https://github.com/NagiosEnterprises/nrpe
 [repo-epel]: https://galaxy.ansible.com/geerlingguy/repo-epel/
