@@ -4,10 +4,17 @@
   package:
     name:
       - nrpe
-      - nagios-plugins-load
-      - nagios-plugins-procs
-      - nagios-plugins-users
-      - nagios-plugins-disk
+      - monitoring-plugins-common
+      - monitoring-plugins-extras
+      - monitoring-plugins-count_file
+      - monitoring-plugins-disk
+      - monitoring-plugins-load
+      - monitoring-plugins-swap
+      - monitoring-plugins-time
+      - monitoring-plugins-ntp_peer
+      - monitoring-plugins-ntp_time
+      - monitoring-plugins-wl-files
+      - monitoring-plugins-wl-dnsname
   register: nrpe_installed
   until: nrpe_installed is succeeded
 
