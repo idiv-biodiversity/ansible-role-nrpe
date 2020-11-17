@@ -2,6 +2,5 @@
 
 nagios_plugin_path: /usr/lib64/nagios/plugins
 nrpe_cfg_path: /etc/nagios/nrpe.cfg
-nrpe_include_path: /etc/nrpe.d
 
 ...
