@@ -1,0 +1,14 @@
+---
+
+- name: install nrpe for suse
+  package:
+    name:
+      - nrpe
+      - nagios-plugins-load
+      - nagios-plugins-procs
+      - nagios-plugins-users
+      - nagios-plugins-disk
+  register: nrpe_installed
+  until: nrpe_installed is succeeded
+
+...

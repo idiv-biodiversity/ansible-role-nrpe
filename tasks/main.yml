@@ -1,20 +1,15 @@
 ---
 
-- name: install nrpe
-  yum:
-    name:
-      - nrpe
-      - nagios-plugins-load
-      - nagios-plugins-procs
-      - nagios-plugins-users
-      - nagios-plugins-disk
-  register: nrpe_installed
-  until: nrpe_installed is succeeded
+- name: import vars for os family
+  import_vars: '{{ ansible_os_family | lower }}.yml'
 
+- name: import install playbook for os family
+  import_playbook: 'install_{{ ansible_os_family | lower }}.yml'
+  
 - name: configure nrpe
   template:
     src: 'nrpe.cfg.j2'
-    dest: '/etc/nagios/nrpe.cfg'
+    dest: '{{ nrpe_cfg_path }}'
     owner: 'nrpe'
     group: 'nrpe'
     mode: '0644'
