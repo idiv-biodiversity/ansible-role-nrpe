@@ -1,0 +1,6 @@
+---
+
+nagios_plugin_path: /usr/lib/nagios/plugins
+nrpe_cfg_path: /etc/nrpe.cfg
+
+...

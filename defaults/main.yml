@@ -27,18 +27,18 @@ nrpe_connection_timeout: '300'
 
 nrpe_commands:
   - name: 'check_users'
-    line: '/usr/lib64/nagios/plugins/check_users -w 5 -c 10'
+    line: '{{ nagios_plugin_path }}/check_users -w 5 -c 10'
 
   - name: 'check_load'
-    line: '/usr/lib64/nagios/plugins/check_load -r -w .15,.10,.05 -c .30,.25,.20'
+    line: '{{ nagios_plugin_path }}/check_load -r -w .15,.10,.05 -c .30,.25,.20'
 
   - name: 'check_hda1'
-    line: '/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /dev/hda1'
+    line: '{{ nagios_plugin_path }}/check_disk -w 20% -c 10% -p /dev/hda1'
 
   - name: 'check_zombie_procs'
-    line: '/usr/lib64/nagios/plugins/check_procs -w 5 -c 10 -s Z'
+    line: '{{ nagios_plugin_path }}/check_procs -w 5 -c 10 -s Z'
 
   - name: 'check_total_procs'
-    line: '/usr/lib64/nagios/plugins/check_procs -w 150 -c 200'
+    line: '{{ nagios_plugin_path }}/check_procs -w 150 -c 200'
 
 ...
