@@ -18,19 +18,18 @@
     owner: 'nrpe'
     group: 'nrpe'
     mode: '0644'
-  register: nrpe_configured
-
-- name: restart nrpe service
-  service:
-    name: nrpe
-    state: restarted
-  when: nrpe_configured.changed
+  register: __nrpe_configuration
 
 - name: enable nrpe service and assure it is started
   service:
     name: nrpe
     enabled: yes
-    state: started
+    state: >-
+      {{
+        __nrpe_configuration.changed |
+          default(False) |
+          ternary("restarted", "started")
+      }}
   tags:
     - service
 
