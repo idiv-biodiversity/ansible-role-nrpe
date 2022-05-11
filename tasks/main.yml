@@ -3,13 +3,13 @@
 - import_tasks: variables.yml
 
 - name: install nrpe
-  package:
+  ansible.builtin.package:
     name: '{{ nrpe_packages }}'
   register: nrpe_installed
   until: nrpe_installed is succeeded
 
 - name: configure nrpe
-  template:
+  ansible.builtin.template:
     src: 'nrpe_{{ ansible_os_family }}_{{ ansible_distribution_major_version }}.cfg.j2'
     dest: '/etc/nagios/nrpe.cfg'
     owner: '{{ nrpe_user }}'
@@ -18,7 +18,7 @@
   register: __nrpe_configuration
 
 - name: enable nrpe service and assure it is started
-  service:
+  ansible.builtin.service:
     name: nrpe
     enabled: yes
     state: >-
