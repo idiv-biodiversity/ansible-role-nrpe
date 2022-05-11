@@ -1,13 +1,10 @@
 ---
 
+- import_tasks: variables.yml
+
 - name: install nrpe
-  yum:
-    name:
-      - nrpe
-      - nagios-plugins-load
-      - nagios-plugins-procs
-      - nagios-plugins-users
-      - nagios-plugins-disk
+  package:
+    name: '{{ nrpe_packages }}'
   register: nrpe_installed
   until: nrpe_installed is succeeded
 
