@@ -10,10 +10,10 @@
 
 - name: configure nrpe
   template:
-    src: 'nrpe.cfg.j2'
+    src: 'nrpe_{{ ansible_os_family }}_{{ ansible_distribution_major_version }}.cfg.j2'
     dest: '/etc/nagios/nrpe.cfg'
-    owner: 'nrpe'
-    group: 'nrpe'
+    owner: '{{ nrpe_user }}'
+    group: '{{ nrpe_group }}'
     mode: '0644'
   register: __nrpe_configuration
 
