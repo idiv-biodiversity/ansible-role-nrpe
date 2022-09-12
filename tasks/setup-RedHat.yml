@@ -1,0 +1,10 @@
+---
+
+- name: install nrpe
+  ansible.builtin.yum:
+    name: '{{ nrpe_packages }}'
+    enablerepo: '{{ __nrpe_enablerepos }}'
+  register: nrpe_installed
+  until: nrpe_installed is succeeded
+
+...

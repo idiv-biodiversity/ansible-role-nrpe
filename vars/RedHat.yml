@@ -7,4 +7,7 @@ __nrpe_packages:
   - nagios-plugins-users
   - nagios-plugins-disk
 
+__nrpe_enablerepos:
+  - epel
+
 ...

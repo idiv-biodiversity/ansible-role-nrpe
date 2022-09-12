@@ -1,12 +1,7 @@
 ---
 
 - import_tasks: variables.yml
-
-- name: install nrpe
-  ansible.builtin.package:
-    name: '{{ nrpe_packages }}'
-  register: nrpe_installed
-  until: nrpe_installed is succeeded
+- include_tasks: 'setup-{{ ansible_os_family }}.yml'
 
 - name: configure nrpe
   ansible.builtin.template:
